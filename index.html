@@ -1,0 +1,1008 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analise de Invasoes em Empresas Brasileiras - 2025</title>
+  <style>
+:root {
+  --ink: #16202a;
+  --muted: #607080;
+  --paper: #ffffff;
+  --soft: #eef3f7;
+  --line: #d9e2ea;
+  --navy: #0d1f2d;
+  --teal: #0f766e;
+  --red: #b42318;
+  --blue: #245cc7;
+  --purple: #6d3a9c;
+  --green: #20845a;
+  --gold: #b86b00;
+  --shadow: 0 18px 40px rgba(18, 32, 46, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #f5f8fb;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: #0f5fa8;
+}
+
+.site-header {
+  color: #fff;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(135deg, #091d26 0%, #132b38 42%, #251c36 100%);
+  background-size: 42px 42px, 42px 42px, auto;
+  overflow: hidden;
+}
+
+.topbar,
+.hero,
+main {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.topbar {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand,
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.brand-mark {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  border: 3px solid #74d4c2;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 4px rgba(116, 212, 194, 0.18);
+}
+
+.hero {
+  min-height: 520px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  align-items: center;
+  gap: 48px;
+  padding: 64px 0 86px;
+}
+
+.hero-copy,
+.signal-board {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #0f766e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #88e0d0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 780px;
+  margin-bottom: 18px;
+  font-size: clamp(2.4rem, 7vw, 5.9rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+}
+
+.hero-copy p:last-child {
+  max-width: 680px;
+  margin-bottom: 0;
+  color: #d5e1eb;
+  font-size: 1.08rem;
+  overflow-wrap: break-word;
+}
+
+.signal-board {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(90deg, transparent 0 22px, rgba(255, 255, 255, 0.06) 22px 23px, transparent 23px 46px),
+    linear-gradient(180deg, transparent 0 22px, rgba(255, 255, 255, 0.06) 22px 23px, transparent 23px 46px),
+    rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.trace {
+  position: absolute;
+  height: 2px;
+  background: rgba(136, 224, 208, 0.72);
+  transform-origin: left;
+}
+
+.trace-a {
+  width: 62%;
+  left: 12%;
+  top: 30%;
+  transform: rotate(18deg);
+}
+
+.trace-b {
+  width: 54%;
+  left: 20%;
+  top: 68%;
+  transform: rotate(-24deg);
+  background: rgba(255, 204, 110, 0.76);
+}
+
+.trace-c {
+  width: 46%;
+  left: 42%;
+  top: 46%;
+  transform: rotate(42deg);
+  background: rgba(147, 181, 255, 0.7);
+}
+
+.node {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.82);
+}
+
+.node-red {
+  left: 12%;
+  top: 27%;
+  background: #f97066;
+}
+
+.node-blue {
+  right: 18%;
+  top: 44%;
+  background: #6aa9ff;
+}
+
+.node-green {
+  left: 27%;
+  bottom: 24%;
+  background: #59d7a3;
+}
+
+.node-yellow {
+  right: 28%;
+  top: 20%;
+  background: #ffcf66;
+}
+
+.signal-card {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  right: 32px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(7, 19, 29, 0.72);
+  border-radius: 8px;
+}
+
+.signal-card strong {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.signal-card span {
+  color: #d5e1eb;
+  font-weight: 700;
+  text-align: right;
+}
+
+main {
+  padding: 34px 0 64px;
+}
+
+.summary-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: -78px;
+  overflow: hidden;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.summary-item {
+  min-height: 138px;
+  padding: 24px;
+  background: var(--paper);
+}
+
+.summary-label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.summary-item strong {
+  display: block;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.note-section,
+.comparison,
+.final-analysis,
+.sources {
+  margin-top: 34px;
+  padding: 30px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.note-section h2,
+.comparison h2,
+.final-analysis h2,
+.sources h2 {
+  margin-bottom: 10px;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.15;
+}
+
+.note-section p,
+.final-analysis p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.companies {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.company-card {
+  padding: 26px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--accent);
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(18, 32, 46, 0.08);
+}
+
+.company-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.accent-red {
+  --accent: var(--red);
+}
+
+.accent-blue {
+  --accent: var(--blue);
+}
+
+.accent-purple {
+  --accent: var(--purple);
+}
+
+.accent-green {
+  --accent: var(--green);
+}
+
+.accent-gold {
+  --accent: var(--gold);
+}
+
+.company-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.company-type {
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.company-card h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.15;
+}
+
+.badge {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  color: #344555;
+  background: #edf2f6;
+  border: 1px solid #dbe4ec;
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 0 0 20px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.metrics dt {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.metrics dd {
+  margin: 4px 0 0;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.company-card h3 {
+  margin: 18px 0 8px;
+  font-size: 1rem;
+}
+
+.company-card ul,
+.sources ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.company-card li,
+.sources li {
+  margin-bottom: 8px;
+}
+
+.recommendation {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  color: #314454;
+  border-top: 1px solid var(--line);
+  font-weight: 700;
+}
+
+.section-heading {
+  margin-bottom: 24px;
+}
+
+.loss-list {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.loss-row {
+  display: grid;
+  grid-template-columns: 180px minmax(140px, 1fr) 120px;
+  align-items: center;
+  gap: 16px;
+  font-weight: 800;
+}
+
+.bar-wrap {
+  height: 16px;
+  overflow: hidden;
+  background: #e7edf3;
+  border-radius: 999px;
+}
+
+.bar {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.bar.red {
+  background: var(--red);
+}
+
+.bar.blue {
+  background: var(--blue);
+}
+
+.bar.green {
+  background: var(--green);
+}
+
+.bar.purple {
+  background: var(--purple);
+}
+
+.bar.gold {
+  background: var(--gold);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+th,
+td {
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: #334656;
+  background: #edf3f8;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.final-analysis {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.final-analysis ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.final-analysis li {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.sources {
+  color: var(--muted);
+}
+
+.sources h2 {
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    padding-top: 36px;
+  }
+
+  .signal-board {
+    min-height: 300px;
+  }
+
+  .summary-band {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: -52px;
+  }
+
+  .companies,
+  .final-analysis {
+    grid-template-columns: 1fr;
+  }
+
+  .company-card:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar,
+  .hero,
+  main {
+    width: min(360px, calc(100vw - 24px));
+    margin-left: 12px;
+    margin-right: 0;
+  }
+
+  .hero-copy,
+  .signal-board {
+    width: min(360px, calc(100vw - 24px));
+    max-width: min(360px, calc(100vw - 24px));
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px 0;
+  }
+
+  h1 {
+    font-size: 1.95rem;
+    line-height: 1.08;
+  }
+
+  .summary-band,
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-item {
+    min-height: auto;
+  }
+
+  .note-section,
+  .comparison,
+  .final-analysis,
+  .sources,
+  .company-card {
+    padding: 22px;
+  }
+
+  .company-top {
+    flex-direction: column;
+  }
+
+  .loss-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .loss-row strong {
+    text-align: left;
+  }
+
+  .signal-board {
+    min-height: 280px;
+  }
+
+  .signal-card {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .signal-card strong {
+    font-size: 3rem;
+  }
+
+  .signal-card span {
+    text-align: left;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="topbar" aria-label="Cabecalho do relatorio">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Relatorio Cyber Brasil 2025</span>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Panorama 2025</p>
+        <h1>Invasoes em empresas brasileiras: prejuizos, brechas e acoes de seguranca</h1>
+        <p>
+          Analise de cinco empresas brasileiras atacadas em 2025, mostrando
+          impactos financeiros, falhas exploradas e medidas que poderiam reduzir
+          o risco de novos incidentes.
+        </p>
+      </div>
+
+      <div class="signal-board" aria-label="Painel visual de conexoes de ataque">
+        <span class="trace trace-a"></span>
+        <span class="trace trace-b"></span>
+        <span class="trace trace-c"></span>
+        <span class="node node-red"></span>
+        <span class="node node-blue"></span>
+        <span class="node node-green"></span>
+        <span class="node node-yellow"></span>
+        <div class="signal-card">
+          <strong>5</strong>
+          <span>incidentes analisados</span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main id="conteudo">
+    <section class="summary-band" aria-label="Resumo geral">
+      <div class="summary-item">
+        <span class="summary-label">Total de invasoes</span>
+        <strong>5 casos no Brasil</strong>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Prejuizo divulgado</span>
+        <strong>mais de R$ 1,9 bi</strong>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Setores atingidos</span>
+        <strong>Financeiro, tecnologia, varejo e saude</strong>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Principal padrao</span>
+        <strong>credenciais, terceiros e ransomware</strong>
+      </div>
+    </section>
+
+    <section class="note-section">
+      <h2>Como a analise foi feita</h2>
+      <p>
+        Os valores abaixo foram retirados de comunicados e reportagens publicas.
+        Em alguns casos, parte do dinheiro foi bloqueada ou recuperada. Por isso,
+        os numeros devem ser entendidos como impacto financeiro divulgado ou
+        estimado, nao como prejuizo final fechado em auditoria.
+      </p>
+    </section>
+
+    <section class="companies" aria-label="Empresas analisadas">
+      <article class="company-card accent-red">
+        <div class="company-top">
+          <div>
+            <p class="company-type">Tecnologia financeira</p>
+            <h2>C&amp;M Software</h2>
+          </div>
+          <span class="badge">Sao Paulo</span>
+        </div>
+        <dl class="metrics">
+          <div>
+            <dt>Invasoes em 2025</dt>
+            <dd>1 incidente</dd>
+          </div>
+          <div>
+            <dt>Dinheiro perdido</dt>
+            <dd>ao menos R$ 800 mi</dd>
+          </div>
+          <div>
+            <dt>Impacto</dt>
+            <dd>clientes financeiros e Pix</dd>
+          </div>
+        </dl>
+        <p>
+          A C&amp;M Software, que conecta instituicoes financeiras ao Sistema de
+          Pagamentos Brasileiro, foi alvo de um ataque que desviou valores de
+          contas-reserva ligadas a clientes que usavam sua infraestrutura.
+        </p>
+        <h3>Brechas principais</h3>
+        <ul>
+          <li>uso indevido de credenciais validas;</li>
+          <li>falha de controle em ambiente ligado a pagamentos;</li>
+          <li>risco alto por ser fornecedora de varias instituicoes.</li>
+        </ul>
+        <p class="recommendation">
+          Recomendacao: limitar acessos privilegiados, exigir dupla aprovacao em
+          operacoes criticas e monitorar transacoes fora do padrao em tempo real.
+        </p>
+      </article>
+
+      <article class="company-card accent-blue">
+        <div class="company-top">
+          <div>
+            <p class="company-type">Tecnologia para bancos</p>
+            <h2>Sinqia</h2>
+          </div>
+          <span class="badge">Brasil</span>
+        </div>
+        <dl class="metrics">
+          <div>
+            <dt>Invasoes em 2025</dt>
+            <dd>1 incidente</dd>
+          </div>
+          <div>
+            <dt>Dinheiro perdido</dt>
+            <dd>cerca de R$ 710 mi</dd>
+          </div>
+          <div>
+            <dt>Impacto</dt>
+            <dd>duas instituicoes clientes</dd>
+          </div>
+        </dl>
+        <p>
+          O ataque contra a Sinqia envolveu transacoes B2B nao autorizadas no
+          ambiente Pix. A investigacao preliminar apontou exploracao de
+          credenciais legitimas de fornecedores de tecnologia.
+        </p>
+        <h3>Brechas principais</h3>
+        <ul>
+          <li>credenciais de fornecedores com acesso sensivel;</li>
+          <li>controles insuficientes para transacoes de alto valor;</li>
+          <li>dependencia de terceiros em sistemas criticos.</li>
+        </ul>
+        <p class="recommendation">
+          Recomendacao: revisar acessos de fornecedores, aplicar autenticacao
+          forte e criar travas automaticas para transacoes fora do comportamento normal.
+        </p>
+      </article>
+
+      <article class="company-card accent-purple">
+        <div class="company-top">
+          <div>
+            <p class="company-type">Varejo farmaceutico</p>
+            <h2>Grupo Jorge Batista</h2>
+          </div>
+          <span class="badge">Piaui</span>
+        </div>
+        <dl class="metrics">
+          <div>
+            <dt>Invasoes em 2025</dt>
+            <dd>1 incidente</dd>
+          </div>
+          <div>
+            <dt>Dinheiro perdido</dt>
+            <dd>mais de R$ 400 mi</dd>
+          </div>
+          <div>
+            <dt>Impacto</dt>
+            <dd>operacoes e dados internos</dd>
+          </div>
+        </dl>
+        <p>
+          O grupo, ligado a Drogarias Globo e Distribuidora Nazaria, sofreu um
+          ataque de ransomware atribuido ao grupo Gunra, com instabilidade em
+          sistemas e ameaca contra dados corporativos.
+        </p>
+        <h3>Brechas principais</h3>
+        <ul>
+          <li>ambiente vulneravel a ransomware;</li>
+          <li>possivel exposicao de documentos internos e financeiros;</li>
+          <li>paralisacao de sistemas importantes para lojas e distribuicao.</li>
+        </ul>
+        <p class="recommendation">
+          Recomendacao: manter backups isolados, treinar funcionarios contra
+          phishing e separar sistemas administrativos dos sistemas das lojas.
+        </p>
+      </article>
+
+      <article class="company-card accent-green">
+        <div class="company-top">
+          <div>
+            <p class="company-type">Investimentos</p>
+            <h2>XP Investimentos</h2>
+          </div>
+          <span class="badge">Sao Paulo</span>
+        </div>
+        <dl class="metrics">
+          <div>
+            <dt>Invasoes em 2025</dt>
+            <dd>1 incidente</dd>
+          </div>
+          <div>
+            <dt>Dinheiro perdido</dt>
+            <dd>nao divulgado</dd>
+          </div>
+          <div>
+            <dt>Impacto</dt>
+            <dd>dados de clientes expostos</dd>
+          </div>
+        </dl>
+        <p>
+          A XP comunicou clientes sobre acesso indevido a uma base hospedada em
+          fornecedor externo. Foram expostos dados cadastrais e informacoes como
+          numero de conta, saldo, posicao e limite de credito.
+        </p>
+        <h3>Brechas principais</h3>
+        <ul>
+          <li>base sensivel em ambiente de fornecedor;</li>
+          <li>exposicao de informacoes financeiras de clientes;</li>
+          <li>risco de golpes por telefone usando dados reais.</li>
+        </ul>
+        <p class="recommendation">
+          Recomendacao: auditar fornecedores, criptografar bases sensiveis e
+          reforcar alertas contra golpes de engenharia social.
+        </p>
+      </article>
+
+      <article class="company-card accent-gold">
+        <div class="company-top">
+          <div>
+            <p class="company-type">Fintech</p>
+            <h2>Monbank</h2>
+          </div>
+          <span class="badge">Rio Grande do Sul</span>
+        </div>
+        <dl class="metrics">
+          <div>
+            <dt>Invasoes em 2025</dt>
+            <dd>1 incidente</dd>
+          </div>
+          <div>
+            <dt>Dinheiro perdido</dt>
+            <dd>R$ 4,9 mi desviados</dd>
+          </div>
+          <div>
+            <dt>Impacto</dt>
+            <dd>Pix e STR interrompidos</dd>
+          </div>
+        </dl>
+        <p>
+          A fintech gaucha confirmou ataque que gerou desvio inicial de R$ 4,9
+          milhoes. Segundo comunicados, a maior parte do valor foi recuperada e
+          as operacoes foram interrompidas para conter o incidente.
+        </p>
+        <h3>Brechas principais</h3>
+        <ul>
+          <li>movimentacoes suspeitas no ambiente digital interno;</li>
+          <li>necessidade de bloqueio rapido para conter perdas;</li>
+          <li>risco em contas-reserva e sistemas de pagamento.</li>
+        </ul>
+        <p class="recommendation">
+          Recomendacao: usar limites dinamicos por risco, monitorar acessos a
+          contas-reserva e testar respostas rapidas com o Banco Central.
+        </p>
+      </article>
+    </section>
+
+    <section class="comparison" aria-label="Comparacao dos casos">
+      <div class="section-heading">
+        <p class="eyebrow">Comparacao</p>
+        <h2>Prejuizo e brecha principal por empresa</h2>
+      </div>
+
+      <div class="loss-list">
+        <div class="loss-row">
+          <span>C&amp;M Software</span>
+          <div class="bar-wrap"><span class="bar red" style="width: 100%"></span></div>
+          <strong>R$ 800 mi+</strong>
+        </div>
+        <div class="loss-row">
+          <span>Sinqia</span>
+          <div class="bar-wrap"><span class="bar blue" style="width: 89%"></span></div>
+          <strong>R$ 710 mi</strong>
+        </div>
+        <div class="loss-row">
+          <span>Grupo Jorge Batista</span>
+          <div class="bar-wrap"><span class="bar purple" style="width: 50%"></span></div>
+          <strong>R$ 400 mi+</strong>
+        </div>
+        <div class="loss-row">
+          <span>Monbank</span>
+          <div class="bar-wrap"><span class="bar gold" style="width: 8%"></span></div>
+          <strong>R$ 4,9 mi</strong>
+        </div>
+        <div class="loss-row">
+          <span>XP Investimentos</span>
+          <div class="bar-wrap"><span class="bar green" style="width: 5%"></span></div>
+          <strong>nao divulgado</strong>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Empresa</th>
+              <th>Setor</th>
+              <th>Brecha principal</th>
+              <th>Risco para a empresa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>C&amp;M Software</td>
+              <td>Tecnologia financeira</td>
+              <td>credenciais validas e falha em ambiente de pagamentos</td>
+              <td>fraudes milionarias e perda de confianca de clientes</td>
+            </tr>
+            <tr>
+              <td>Sinqia</td>
+              <td>Tecnologia para bancos</td>
+              <td>credenciais de fornecedores de TI</td>
+              <td>transacoes nao autorizadas e suspensao de conexoes criticas</td>
+            </tr>
+            <tr>
+              <td>Grupo Jorge Batista</td>
+              <td>Varejo farmaceutico</td>
+              <td>ransomware em sistemas corporativos</td>
+              <td>paralisacao operacional e risco de perda de dados</td>
+            </tr>
+            <tr>
+              <td>XP Investimentos</td>
+              <td>Financeiro</td>
+              <td>base de dados em fornecedor externo</td>
+              <td>golpes direcionados contra clientes</td>
+            </tr>
+            <tr>
+              <td>Monbank</td>
+              <td>Fintech</td>
+              <td>movimentacoes indevidas no ambiente interno</td>
+              <td>desvio de recursos e parada temporaria de operacoes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="final-analysis">
+      <div>
+        <p class="eyebrow">Conclusao</p>
+        <h2>O que as empresas brasileiras deveriam reforcar</h2>
+      </div>
+      <ol>
+        <li>Usar autenticacao multifator em todos os acessos criticos.</li>
+        <li>Dar a funcionarios e fornecedores apenas o acesso necessario.</li>
+        <li>Monitorar transacoes financeiras incomuns em tempo real.</li>
+        <li>Separar sistemas internos, pagamentos, lojas e fornecedores.</li>
+        <li>Treinar equipes contra phishing, golpes por telefone e roubo de credenciais.</li>
+        <li>Manter backups isolados e um plano de resposta testado.</li>
+      </ol>
+    </section>
+
+    <section class="sources">
+      <h2>Fontes consultadas</h2>
+      <ul>
+        <li><a href="https://investalk.bb.com.br/noticias/mercado/ataque-hacker-a-cm-atinge-ao-menos-r-800-milhoes-o-que-se-sabe-ate-agora">InvesTalk/BB - ataque a C&amp;M Software</a></li>
+        <li><a href="https://www.uol.com.br/tilt/noticias/reuters/2025/09/02/sinqia-teve-r710-mi-desviados-em-ataque-hacker.htm">UOL/Reuters - ataque a Sinqia</a></li>
+        <li><a href="https://timesbrasil.com.br/empresas-e-negocios/servicos-e-varejo/grupo-jorge-batista-sofre-ataque-cibernetico-com-prejuizo-superior-a-r-400-milhoes/">Times Brasil/CNBC - Grupo Jorge Batista</a></li>
+        <li><a href="https://tecnoblog.net/noticias/xp-comunica-clientes-sobre-vazamento-de-dados/">Tecnoblog - vazamento de dados na XP</a></li>
+        <li><a href="https://www.tecmundo.com.br/seguranca/406758-monetarie-scd-sofre-suposto-ciberataque-e-tem-valores-financeiros-desviados.htm">TecMundo - ataque ao Monbank</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
+
